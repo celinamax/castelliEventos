@@ -11,8 +11,10 @@ public class CadastroSaidaController {
         this.view = view;        
     }
     
-//    public Cadastro obterDadosConvidado(){
-//        String digital = view.getjTextFieldDigital().getText();
+//    public CadastroSaida obterDadosConvidado(){
+//        //String digital = view.getjTextFieldDigital().getText();
+//        String documento = jTextFieldDocumento.getText();
+//        
 //    }
-//    
+    
 }
