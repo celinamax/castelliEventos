@@ -1,13 +1,13 @@
 
 package Controller;
 
-import view.CadastroSaida;
+import view.CadastroSaidaView;
 
 public class CadastroSaidaController {
     
-    private final CadastroSaida view;
+    private final CadastroSaidaView view;
     
-    public CadastroSaidaController(CadastroSaida view){
+    public CadastroSaidaController(CadastroSaidaView view){
         this.view = view;        
     }
     

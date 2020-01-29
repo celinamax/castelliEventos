@@ -3,9 +3,9 @@ package view;
 
 import javax.swing.JTextField;
 
-public class CadastroSaida extends javax.swing.JFrame {
+public class CadastroSaidaView extends javax.swing.JFrame {
 
-    public CadastroSaida() {
+    public CadastroSaidaView() {
         initComponents();
     }
 
@@ -29,7 +29,7 @@ public class CadastroSaida extends javax.swing.JFrame {
         jTextFieldNome = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jButtonCapturar.setBackground(new java.awt.Color(255, 255, 255));
         jButtonCapturar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -121,21 +121,23 @@ public class CadastroSaida extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastroSaida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroSaidaView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastroSaida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroSaidaView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastroSaida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroSaidaView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastroSaida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroSaidaView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastroSaida().setVisible(true);
+                new CadastroSaidaView().setVisible(true);
             }
         });
     }
