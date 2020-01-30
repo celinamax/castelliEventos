@@ -30,6 +30,7 @@ public class MenuView extends javax.swing.JFrame {
         jButtonEntrada = new javax.swing.JButton();
         jButtonReentrada = new javax.swing.JButton();
         jButtonCadastro = new javax.swing.JButton();
+        jButtonConfigBanco = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,17 +56,25 @@ public class MenuView extends javax.swing.JFrame {
             }
         });
 
+        jButtonConfigBanco.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonConfigBanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon seting_20x20.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(jButtonEntrada)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addComponent(jButtonReentrada)
-                .addGap(35, 35, 35)
-                .addComponent(jButtonCadastro)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonConfigBanco))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(jButtonEntrada)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                        .addComponent(jButtonReentrada)
+                        .addGap(35, 35, 35)
+                        .addComponent(jButtonCadastro)))
                 .addGap(25, 25, 25))
         );
         layout.setVerticalGroup(
@@ -76,7 +85,9 @@ public class MenuView extends javax.swing.JFrame {
                     .addComponent(jButtonEntrada)
                     .addComponent(jButtonReentrada)
                     .addComponent(jButtonCadastro))
-                .addContainerGap(141, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                .addComponent(jButtonConfigBanco)
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -137,6 +148,7 @@ public class MenuView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCadastro;
+    private javax.swing.JButton jButtonConfigBanco;
     private javax.swing.JButton jButtonEntrada;
     private javax.swing.JButton jButtonReentrada;
     // End of variables declaration//GEN-END:variables

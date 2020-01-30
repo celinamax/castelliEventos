@@ -22,8 +22,7 @@ public class CadastroSaidaController {
     }
     
     public void salvarCadastro(){          
-        CadastroSaida cadastroSaida = helper.cadastroSaida();
-        
+        CadastroSaida cadastroSaida = helper.cadastroSaida();        
         try{
         Connection conn = new Conexao().getConnection();
         CadastroSaidaDAO csDao = new CadastroSaidaDAO(conn);
@@ -31,7 +30,17 @@ public class CadastroSaidaController {
         } catch (SQLException ex) {
             Logger.getLogger(CadastroSaida.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+    }
+    
+    public void atualizarCadastro(){
+        CadastroSaida cadastroSaida = helper.cadastroSaida();        
+        try{
+        Connection conn = new Conexao().getConnection();
+        CadastroSaidaDAO csDao = new CadastroSaidaDAO(conn);
+        csDao.update(cadastroSaida);
+        } catch (SQLException ex) {
+            Logger.getLogger(CadastroSaida.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

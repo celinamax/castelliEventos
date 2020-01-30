@@ -9,6 +9,9 @@ public class CadastroSaida {
     protected byte digital;
     protected byte foto;
 
+    public CadastroSaida() {
+    }   
+
     public CadastroSaida(String nome, String documento) {        
         this.nome = nome;
         this.documento = documento;
