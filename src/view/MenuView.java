@@ -58,6 +58,11 @@ public class MenuView extends javax.swing.JFrame {
 
         jButtonConfigBanco.setBackground(new java.awt.Color(255, 255, 255));
         jButtonConfigBanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon seting_20x20.png"))); // NOI18N
+        jButtonConfigBanco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonConfigBancoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -110,6 +115,11 @@ public class MenuView extends javax.swing.JFrame {
         CadastroSaidaView telaCadastroSaida = new CadastroSaidaView();
         telaCadastroSaida.setVisible(true);
     }//GEN-LAST:event_jButtonCadastroActionPerformed
+
+    private void jButtonConfigBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfigBancoActionPerformed
+        ConexaoBancoView telaConexao = new ConexaoBancoView(new javax.swing.JFrame(), true);
+        telaConexao.setVisible(true);
+    }//GEN-LAST:event_jButtonConfigBancoActionPerformed
 
     /**
      * @param args the command line arguments

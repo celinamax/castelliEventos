@@ -2,6 +2,9 @@
 package view;
 
 import Controller.CadastroSaidaController;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTextField;
 
 public class CadastroSaidaView extends javax.swing.JFrame {
@@ -116,7 +119,11 @@ public class CadastroSaidaView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        controller.salvarCadastro();
+        try {
+            controller.salvarCadastro();
+        } catch (IOException ex) {
+            Logger.getLogger(CadastroSaidaView.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButtonCapturarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCapturarActionPerformed

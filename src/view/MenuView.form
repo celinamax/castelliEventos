@@ -93,6 +93,9 @@
           <Image iconType="3" name="/images/icon seting_20x20.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonConfigBancoActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

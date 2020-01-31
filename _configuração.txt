@@ -1,0 +1,1 @@
+jdbc:mysql:C:\Users\HMS\Documents\Delphi\Banco_Dados\CASTELLI?useTimezone=true&serverTimezone=UTC, root ,root
