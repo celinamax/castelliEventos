@@ -7,37 +7,66 @@ package Controller;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import view.ConexaoBancoView;
-import javax.swing.JFileChooser;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Base64;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import DAO.Conexao;
+import view.MenuAdminView;
 import view.MenuView;
-import java.io.FileNotFoundException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.util.Base64;
 
 /**
  *
  * @author HMS
  */
-public class conexaoBancoController {
+public class MenuAdminController {
+    
+    private MenuAdminView view;
 
-    private ConexaoBancoView view;
-    private Conexao Conexao;
-    private MenuView MenuView;
-
-    public conexaoBancoController(ConexaoBancoView view) {
+    public MenuAdminController(MenuAdminView view) {
         this.view = view;
     }
+    
+    public void validar_existe_banco() throws FileNotFoundException, IOException, SQLException {        
+        File file = new File("C:\\Castelli\\configuracao.txt");
+        if (file.exists()) {
+            view.setVisible(false);
+            FileReader fileR = new FileReader(file);
+            BufferedReader buffR = new BufferedReader(fileR);
+            String caminho_banco = buffR.readLine();
+            String usuario = buffR.readLine();
+            String senha = buffR.readLine();
+            
+            caminho_banco = new String(Base64.getDecoder().decode(caminho_banco.getBytes()));
+            usuario = new String(Base64.getDecoder().decode(usuario.getBytes()));
+            senha = new String(Base64.getDecoder().decode(senha.getBytes()));
+                                
+            Connection conexao = DriverManager.getConnection(caminho_banco, usuario, senha);
 
+            boolean conectar = true;
+            conectar = !conexao.isClosed();
+            
+            if (conectar) {
+                caminho_banco = caminho_banco.replace("jdbc:mysql:", "");
+                caminho_banco = caminho_banco.replace("?useTimezone=true&serverTimezone=UTC", "");
+                view.getTxtCaminho_Banco().setText(caminho_banco);
+                view.getTxtUsuario().setText(usuario);
+                view.getTxtSenha().setText(senha); 
+                view.setVisible(true);
+            } 
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "O Arquivo de configuração não foi encontrado!");
+        }
+    }
+    
     public boolean validar() {
         if (view.getTxtCaminho_Banco().getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Por favor preencha o caminho do banco");
@@ -55,7 +84,7 @@ public class conexaoBancoController {
             return false;
         }
     }
-
+    
     public void escreverArquivo(String caminho_banco, String usuario, String senha) throws IOException, SQLException {
         //arquivo para escrita
         String Banco_full = "jdbc:mysql:" + caminho_banco + "?useTimezone=true&serverTimezone=UTC";
@@ -95,7 +124,7 @@ public class conexaoBancoController {
             view.setVisible(false);
         }
     }
-
+    
     public void configuracao() throws SQLException {
         if (!validar()) {
             try {
@@ -104,33 +133,6 @@ public class conexaoBancoController {
                         view.getTxtSenha().getText());
             } catch (IOException ex) {
                 Logger.getLogger(conexaoBancoController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }
-
-    public void validar_existe_banco() throws FileNotFoundException, IOException, SQLException {        
-        File file = new File("C:\\Castelli\\configuracao.txt");
-        if (file.exists()) {
-            view.setVisible(false);
-            FileReader fileR = new FileReader(file);
-            BufferedReader buffR = new BufferedReader(fileR);
-            String caminho_banco = buffR.readLine();
-            String usuario = buffR.readLine();
-            String senha = buffR.readLine();
-            
-            caminho_banco = new String(Base64.getDecoder().decode(caminho_banco.getBytes()));
-            usuario = new String(Base64.getDecoder().decode(usuario.getBytes()));
-            senha = new String(Base64.getDecoder().decode(senha.getBytes()));
-            
-            Connection conexao = DriverManager.getConnection(caminho_banco, usuario, senha);
-
-            boolean conectar = true;
-            conectar = !conexao.isClosed();
-            if (conectar) {
-                MenuView MenuForm = new MenuView();
-                MenuForm.setVisible(true);
-            } else {
-                view.setVisible(true);
             }
         }
     }

@@ -5,6 +5,10 @@
  */
 package view;
 
+import Controller.MenuController;
+import javax.swing.JButton;
+import javax.swing.JMenuBar;
+
 /**
  *
  * @author HMS
@@ -14,8 +18,13 @@ public class MenuView extends javax.swing.JFrame {
     /**
      * Creates new form MenuView
      */
+    
+    private MenuController controller;
+    public boolean AcessoAdmin = false;
+    
     public MenuView() {
         initComponents();
+        controller = new MenuController(this);
     }
 
     /**
@@ -30,10 +39,22 @@ public class MenuView extends javax.swing.JFrame {
         jButtonEntrada = new javax.swing.JButton();
         jButtonReentrada = new javax.swing.JButton();
         jButtonCadastro = new javax.swing.JButton();
-        jButtonConfigBanco = new javax.swing.JButton();
+        bAdministrativo = new javax.swing.JButton();
+        menuAdmin = new javax.swing.JMenuBar();
+        aba_admin = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Menu");
+        setAutoRequestFocus(false);
+        setLocation(new java.awt.Point(450, 300));
+        setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
+        jButtonEntrada.setBackground(new java.awt.Color(255, 255, 255));
         jButtonEntrada.setText("Entrada");
         jButtonEntrada.setToolTipText("");
         jButtonEntrada.addActionListener(new java.awt.event.ActionListener() {
@@ -42,6 +63,7 @@ public class MenuView extends javax.swing.JFrame {
             }
         });
 
+        jButtonReentrada.setBackground(new java.awt.Color(255, 255, 255));
         jButtonReentrada.setText("Reentrada");
         jButtonReentrada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -49,6 +71,7 @@ public class MenuView extends javax.swing.JFrame {
             }
         });
 
+        jButtonCadastro.setBackground(new java.awt.Color(255, 255, 255));
         jButtonCadastro.setText("Cadastro Saída");
         jButtonCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,44 +79,61 @@ public class MenuView extends javax.swing.JFrame {
             }
         });
 
-        jButtonConfigBanco.setBackground(new java.awt.Color(255, 255, 255));
-        jButtonConfigBanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon seting_20x20.png"))); // NOI18N
-        jButtonConfigBanco.addActionListener(new java.awt.event.ActionListener() {
+        bAdministrativo.setBackground(new java.awt.Color(255, 255, 255));
+        bAdministrativo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/admin.jpg"))); // NOI18N
+        bAdministrativo.setText("Acessar administrativo");
+        bAdministrativo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonConfigBancoActionPerformed(evt);
+                bAdministrativoActionPerformed(evt);
             }
         });
+
+        menuAdmin.setBackground(new java.awt.Color(255, 255, 255));
+        menuAdmin.setName("menuAdmin"); // NOI18N
+
+        aba_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/admin.jpg"))); // NOI18N
+        aba_admin.setText("Administrativo");
+        aba_admin.setName("aba_admin"); // NOI18N
+        aba_admin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                aba_adminMouseClicked(evt);
+            }
+        });
+        menuAdmin.add(aba_admin);
+
+        setJMenuBar(menuAdmin);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonConfigBanco))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(jButtonEntrada)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                        .addComponent(jButtonReentrada)
-                        .addGap(35, 35, 35)
-                        .addComponent(jButtonCadastro)))
+                .addGap(42, 42, 42)
+                .addComponent(jButtonEntrada)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addComponent(jButtonReentrada)
+                .addGap(35, 35, 35)
+                .addComponent(jButtonCadastro)
                 .addGap(25, 25, 25))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(bAdministrativo, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(136, 136, 136)
+                .addContainerGap()
+                .addComponent(bAdministrativo)
+                .addGap(102, 102, 102)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonEntrada)
                     .addComponent(jButtonReentrada)
                     .addComponent(jButtonCadastro))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
-                .addComponent(jButtonConfigBanco)
-                .addGap(25, 25, 25))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
+
+        bAdministrativo.getAccessibleContext().setAccessibleName("bAdministrativo");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -116,10 +156,22 @@ public class MenuView extends javax.swing.JFrame {
         telaCadastroSaida.setVisible(true);
     }//GEN-LAST:event_jButtonCadastroActionPerformed
 
-    private void jButtonConfigBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfigBancoActionPerformed
-        ConexaoBancoView telaConexao = new ConexaoBancoView(new javax.swing.JFrame(), true);
-        telaConexao.setVisible(true);
-    }//GEN-LAST:event_jButtonConfigBancoActionPerformed
+    private void bAdministrativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAdministrativoActionPerformed
+           LoginAdminView dialog = new LoginAdminView(new javax.swing.JFrame(), true);
+           dialog.setVisible(true);     
+           AcessoAdmin = dialog.acesso;
+           getMenuAdmin().setVisible(AcessoAdmin);
+           getbAdministrativo().setVisible(!AcessoAdmin);
+    }//GEN-LAST:event_bAdministrativoActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+         menuAdmin.setVisible(false);
+    }//GEN-LAST:event_formWindowOpened
+
+    private void aba_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aba_adminMouseClicked
+          MenuAdminView dialog = new MenuAdminView(new javax.swing.JFrame(), true);
+          dialog.setVisible(true); 
+    }//GEN-LAST:event_aba_adminMouseClicked
 
     /**
      * @param args the command line arguments
@@ -156,10 +208,29 @@ public class MenuView extends javax.swing.JFrame {
         });
     }
 
+    public JMenuBar getMenuAdmin() {
+        return menuAdmin;
+    }
+
+    public void setMenuAdmin(JMenuBar menuAdmin) {
+        this.menuAdmin = menuAdmin;
+    }
+
+    public JButton getbAdministrativo() {
+        return bAdministrativo;
+    }
+
+    public void setbAdministrativo(JButton bAdministrativo) {
+        this.bAdministrativo = bAdministrativo;
+    } 
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu aba_admin;
+    private javax.swing.JButton bAdministrativo;
     private javax.swing.JButton jButtonCadastro;
-    private javax.swing.JButton jButtonConfigBanco;
     private javax.swing.JButton jButtonEntrada;
     private javax.swing.JButton jButtonReentrada;
+    private javax.swing.JMenuBar menuAdmin;
     // End of variables declaration//GEN-END:variables
 }

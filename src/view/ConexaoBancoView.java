@@ -26,7 +26,6 @@ import javax.swing.JTextField;
 public class ConexaoBancoView extends javax.swing.JDialog {
     
     private final conexaoBancoController controller;
-
     
     public ConexaoBancoView(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -34,8 +33,6 @@ public class ConexaoBancoView extends javax.swing.JDialog {
         controller = new conexaoBancoController(this);
     }
 
-    
-  
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -71,6 +68,7 @@ public class ConexaoBancoView extends javax.swing.JDialog {
         txtSenha.setName("txtSenha"); // NOI18N
         txtSenha.setPreferredSize(null);
 
+        bConexao.setBackground(new java.awt.Color(255, 255, 255));
         bConexao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Banco_Dados.jpg"))); // NOI18N
         bConexao.setText("Criar Conexão");
         bConexao.setName("bConexao"); // NOI18N
@@ -106,7 +104,7 @@ public class ConexaoBancoView extends javax.swing.JDialog {
                     .addComponent(txtUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtSenha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bConexao, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,7 +123,7 @@ public class ConexaoBancoView extends javax.swing.JDialog {
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bConexao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
