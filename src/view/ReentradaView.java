@@ -5,6 +5,8 @@
  */
 package view;
 
+import java.awt.Toolkit;
+
 /**
  *
  * @author HMS
@@ -16,6 +18,7 @@ public class ReentradaView extends javax.swing.JFrame {
      */
     public ReentradaView() {
         initComponents();
+        setIcon();
     }
 
     /**
@@ -76,6 +79,10 @@ public class ReentradaView extends javax.swing.JFrame {
                 new ReentradaView().setVisible(true);
             }
         });
+    }
+    
+    private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../images/castelli.png")));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

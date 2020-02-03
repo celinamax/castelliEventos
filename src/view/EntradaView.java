@@ -5,6 +5,8 @@
  */
 package view;
 
+import java.awt.Toolkit;
+
 /**
  *
  * @author HMS
@@ -16,6 +18,7 @@ public class EntradaView extends javax.swing.JFrame {
      */
     public EntradaView() {
         initComponents();
+        setIcon();
     }
 
     /**
@@ -76,6 +79,10 @@ public class EntradaView extends javax.swing.JFrame {
                 new EntradaView().setVisible(true);
             }
         });
+    }
+    
+    private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../images/castelli.png")));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

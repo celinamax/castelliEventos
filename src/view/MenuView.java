@@ -6,6 +6,7 @@
 package view;
 
 import Controller.MenuController;
+import java.awt.Toolkit;
 import javax.swing.JButton;
 import javax.swing.JMenuBar;
 
@@ -25,6 +26,7 @@ public class MenuView extends javax.swing.JFrame {
     public MenuView() {
         initComponents();
         controller = new MenuController(this);
+        setIcon();
     }
 
     /**
@@ -207,6 +209,10 @@ public class MenuView extends javax.swing.JFrame {
             }
         });
     }
+    
+    private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../images/castelli.png")));
+    }
 
     public JMenuBar getMenuAdmin() {
         return menuAdmin;
@@ -233,4 +239,5 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JButton jButtonReentrada;
     private javax.swing.JMenuBar menuAdmin;
     // End of variables declaration//GEN-END:variables
+
 }

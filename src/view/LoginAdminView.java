@@ -6,6 +6,7 @@
 package view;
 
 import Controller.LoginAdminController;
+import java.awt.Toolkit;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,6 +33,7 @@ public class LoginAdminView extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         controller = new LoginAdminController(this);
+        setIcon();
     }
 
     @SuppressWarnings("unchecked")
@@ -164,6 +166,10 @@ public class LoginAdminView extends javax.swing.JDialog {
                 dialog.setVisible(true);
             }
         });
+    }
+    
+    private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../images/castelli.png")));
     }
 
     public JButton getbAcessar() {

@@ -6,6 +6,7 @@
 package view;
 
 import Controller.MenuAdminController;
+import java.awt.Toolkit;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -28,6 +29,7 @@ public class MenuAdminView extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         controller = new MenuAdminController(this);
+        setIcon();
     }
 
     /**
@@ -181,6 +183,10 @@ public class MenuAdminView extends javax.swing.JDialog {
             }
         });
     }
+    
+    private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../images/castelli.png")));
+    } 
 
     public JButton getbConexao() {
         return bConexao;

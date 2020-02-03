@@ -5,6 +5,7 @@
  */
 package view;
 import Controller.conexaoBancoController;
+import java.awt.Toolkit;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.security.InvalidKeyException;
@@ -31,6 +32,7 @@ public class ConexaoBancoView extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         controller = new conexaoBancoController(this);
+        setIcon();
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -190,6 +192,10 @@ public class ConexaoBancoView extends javax.swing.JDialog {
                 dialog.setVisible(true);
             }
         });
+    }
+    
+    private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../images/castelli.png")));
     }
 
     public JButton getbConexao() {

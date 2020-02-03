@@ -2,6 +2,7 @@
 package view;
 
 import Controller.CadastroSaidaController;
+import java.awt.Toolkit;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,6 +15,7 @@ public class CadastroSaidaView extends javax.swing.JFrame {
     public CadastroSaidaView() {
         initComponents();
          controller = new CadastroSaidaController(this);
+         setIcon();
     }   
    
 
@@ -140,6 +142,10 @@ public class CadastroSaidaView extends javax.swing.JFrame {
                 new CadastroSaidaView().setVisible(true);
             }
         });
+    }
+    
+    private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../images/castelli.png")));
     }
 
     public JTextField getjTextFieldDocumento() {
