@@ -22,10 +22,11 @@ public class CadastroSaidaDAO {
     }
     
     public void insert(CadastroSaida cs) throws SQLException{
-        String sql = "INSERT INTO cadastroSaida (nome, documento)VALUES (?, ?)";
+        String sql = "INSERT INTO cadastroSaida (nome, documento, imagem)VALUES (?, ?, ?)";
         stmt = connection.prepareStatement(sql);
         stmt.setString(1, cs.getNome());
         stmt.setString(2, cs.getDocumento());
+        stmt.setBytes(3, cs.getFoto());
         stmt.execute();
         stmt.close();
     }
@@ -48,6 +49,7 @@ public class CadastroSaidaDAO {
             cs.setId(rs.getInt("id"));
             cs.setNome(rs.getString("nome"));
             cs.setDocumento(rs.getString("documento"));
+            cs.setFoto(rs.getBytes("imagem"));
             lista.add(cs);
         }
         return lista;

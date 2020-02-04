@@ -6,24 +6,25 @@ public class CadastroSaida {
     protected int id;
     protected String nome;
     protected String documento;
-    protected byte digital;
-    protected byte foto;
+    //protected byte digital;
+    protected byte[] foto;
 
     public CadastroSaida() {
     }   
 
-    public CadastroSaida(String nome, String documento) {        
+    public CadastroSaida(String nome, String documento, byte[] foto) {        
         this.nome = nome;
         this.documento = documento;
+        this.foto = foto;
     }
     
         
-    public CadastroSaida(int id, String nome, String documento, byte digital, byte foto){
+    public CadastroSaida(int id, String nome, String documento, byte digital, byte[] foto){
         this.id = id;
         this.nome = nome;
         this.documento = documento;
 //        this.digital = digital;
-//        this.foto = foto;
+        this.foto = foto;
     }
 
     public int getId() {
@@ -58,13 +59,13 @@ public class CadastroSaida {
 //        this.digital = digital;
 //    }
 //
-//    public byte getFoto() {
-//        return foto;
-//    }
-//
-//    public void setFoto(byte foto) {
-//        this.foto = foto;
-//    }   
+    public byte[] getFoto() {
+        return foto;
+    }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
+    }   
     
     
 }

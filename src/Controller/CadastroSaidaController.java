@@ -30,6 +30,7 @@ public class CadastroSaidaController {
         Connection conn = new Conexao().getConnection();
         CadastroSaidaDAO csDao = new CadastroSaidaDAO(conn);
         csDao.insert(cadastroSaida);
+        helper.limparTela();
         JOptionPane.showMessageDialog(null, "Cadastro Realizado com sucesso!");
         } catch (SQLException ex) {
             Logger.getLogger(CadastroSaida.class.getName()).log(Level.SEVERE, null, ex);
