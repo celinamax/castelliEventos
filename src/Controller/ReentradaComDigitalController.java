@@ -1,0 +1,48 @@
+
+package Controller;
+
+import DAO.Conexao;
+import DAO.ReentradaDigitalDocumentoDAO;
+import Helper.ReentradaComDigitalHelper;
+import Model.ReentradaComDigital;
+import Model.ReentradaComDocumento;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import view.ReentradaView;
+
+public class ReentradaComDigitalController {
+    
+    private final ReentradaView view;
+    private final ReentradaComDigitalHelper helper;
+    boolean liberado = false;
+    
+
+    public ReentradaComDigitalController(ReentradaView view) {
+        this.view = view;
+        this.helper = new ReentradaComDigitalHelper(view);
+        
+    }      
+    
+
+    public void validarDigital() throws SQLException, IOException {         
+        
+        String reentrada = helper.comDigital();
+
+        Connection conexao = new Conexao().getConnection();
+        ReentradaDigitalDocumentoDAO reentradaDAO = new ReentradaDigitalDocumentoDAO(conexao);
+
+        liberado = reentradaDAO.digitalExiste(reentrada);
+
+        if (liberado) {
+            JOptionPane.showMessageDialog(null, "ENTRADA LIBERADA!");
+        } else {
+            JOptionPane.showMessageDialog(null, "BARRAR ENTRADA!");
+        }
+
+        System.out.println("teste de validação de entrada com digital!");
+    }  
+   
+    
+}
