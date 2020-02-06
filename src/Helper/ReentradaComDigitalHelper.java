@@ -11,6 +11,7 @@ public class ReentradaComDigitalHelper {
         this.view = view;
     }
 
+    
     public String comDigital() {
         return view.getjLabelDigital().getText();
         
