@@ -20,7 +20,8 @@ public class ReentradaView extends javax.swing.JFrame {
         initComponents();
         setIcon();       
         this.controller = new ReentradaComDigitalController(this);
-        this.controllerDocumento = new ReentradaComDocumentoController(this);        
+        this.controllerDocumento = new ReentradaComDocumentoController(this);  
+        this.setLocationRelativeTo(null);
     }   
 
     
@@ -34,6 +35,7 @@ public class ReentradaView extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jButtonValidarDocumento = new javax.swing.JButton();
         jButtonLerDigital = new javax.swing.JButton();
+        jLabelMessageTela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -62,6 +64,7 @@ public class ReentradaView extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable1.setAlignmentX(15.0F);
         jScrollPaneTabela.setViewportView(jTable1);
 
         jButtonValidarDocumento.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -80,11 +83,16 @@ public class ReentradaView extends javax.swing.JFrame {
             }
         });
 
+        jLabelMessageTela.setFont(new java.awt.Font("Comic Sans MS", 0, 72)); // NOI18N
+        jLabelMessageTela.setForeground(new java.awt.Color(204, 0, 0));
+        jLabelMessageTela.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelMessageTela.setAlignmentX(0.5F);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextFieldDocumento, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -96,6 +104,10 @@ public class ReentradaView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPaneTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 714, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelMessageTela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,7 +125,9 @@ public class ReentradaView extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(jScrollPaneTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addComponent(jLabelMessageTela, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
         );
 
         pack();
@@ -169,13 +183,24 @@ public class ReentradaView extends javax.swing.JFrame {
 
     public void setjTextFieldDocumento(JTextField jTextFieldDocumento) {
         this.jTextFieldDocumento = jTextFieldDocumento;
-    }   
+    }  
+
+    public JLabel getjLabelMessageTela() {
+        return jLabelMessageTela;
+    }
+
+    public void setjLabelMessageTela(JLabel jLabelMessageTela) {
+        this.jLabelMessageTela = jLabelMessageTela;
+    }
+    
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonLerDigital;
     private javax.swing.JButton jButtonValidarDocumento;
     private javax.swing.JLabel jLabelDigital;
+    private javax.swing.JLabel jLabelMessageTela;
     private javax.swing.JScrollPane jScrollPaneTabela;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextFieldDocumento;

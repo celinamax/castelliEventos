@@ -35,10 +35,11 @@ public class ReentradaComDigitalController {
 
         liberado = reentradaDAO.digitalExiste(reentrada);
 
-        if (liberado) {
-            JOptionPane.showMessageDialog(null, "ENTRADA LIBERADA!");
+        if (liberado) {        
+            
+            view.getjLabelMessageTela().setText("ENTRADA LIBERADA!");
         } else {
-            JOptionPane.showMessageDialog(null, "BARRAR ENTRADA!");
+            view.getjLabelMessageTela().setText("ENTRADA BARRADA!");
         }
 
         System.out.println("teste de validação de entrada com digital!");
