@@ -27,8 +27,8 @@ public class ReentradaDigitalDocumentoDAO {
         String sql = "select * from cadastrosaida where digital = '"+reentrada+"' ";
         stmt = connection.prepareStatement(sql);
         stmt.execute();
-        ResultSet result = stmt.getResultSet();      
-        return result.next();
+        result = stmt.getResultSet();      
+        return result.next();        
     }
 
     public boolean documentoExiste(String reentrada) throws SQLException {  

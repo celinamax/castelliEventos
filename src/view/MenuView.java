@@ -27,6 +27,7 @@ public class MenuView extends javax.swing.JFrame {
         initComponents();
         controller = new MenuController(this);
         setIcon();
+        this.setLocationRelativeTo(null);
     }
 
     /**

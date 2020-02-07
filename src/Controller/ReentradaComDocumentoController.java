@@ -31,10 +31,8 @@ public class ReentradaComDocumentoController {
 
         liberado = reentradaDAO.documentoExiste(reentrada);
         if (liberado) {
-            //view.getjLabelMessageTela().setText("ENTRADA LIBERADA!");
             helper.entradaLiberada();
         } else {
-            //view.getjLabelMessageTela().setText("ENTRADA BARRADA!");
             helper.entradaBarrada();
         }
         helper.limparTela();
