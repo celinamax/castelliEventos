@@ -49,9 +49,9 @@ public class ReentradaComDocumentoHelper {
         return imagem;
     }
 
-    public void setImagem(byte[] imagem) {
-        this.imagem = imagem;
-    }
+//    public void setImagem(byte[] imagem) {
+//        view.setjLabelFoto(controller.);
+//    }
     
     
 

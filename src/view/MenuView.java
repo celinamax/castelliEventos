@@ -82,9 +82,7 @@ public class MenuView extends javax.swing.JFrame {
             }
         });
 
-        bAdministrativo.setBackground(new java.awt.Color(255, 255, 255));
-        bAdministrativo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/admin.jpg"))); // NOI18N
-        bAdministrativo.setText("Acessar administrativo");
+        bAdministrativo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/imgpsh_fullsize_anim (1).png"))); // NOI18N
         bAdministrativo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bAdministrativoActionPerformed(evt);
@@ -119,8 +117,8 @@ public class MenuView extends javax.swing.JFrame {
                 .addComponent(jButtonCadastro)
                 .addGap(25, 25, 25))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(bAdministrativo, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(bAdministrativo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -128,15 +126,13 @@ public class MenuView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(bAdministrativo)
-                .addGap(102, 102, 102)
+                .addGap(108, 108, 108)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonEntrada)
                     .addComponent(jButtonReentrada)
                     .addComponent(jButtonCadastro))
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
-
-        bAdministrativo.getAccessibleContext().setAccessibleName("bAdministrativo");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -159,14 +155,6 @@ public class MenuView extends javax.swing.JFrame {
         telaCadastroSaida.setVisible(true);
     }//GEN-LAST:event_jButtonCadastroActionPerformed
 
-    private void bAdministrativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAdministrativoActionPerformed
-           LoginAdminView dialog = new LoginAdminView(new javax.swing.JFrame(), true);
-           dialog.setVisible(true);     
-           AcessoAdmin = dialog.acesso;
-           getMenuAdmin().setVisible(AcessoAdmin);
-           getbAdministrativo().setVisible(!AcessoAdmin);
-    }//GEN-LAST:event_bAdministrativoActionPerformed
-
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
          menuAdmin.setVisible(false);
     }//GEN-LAST:event_formWindowOpened
@@ -175,6 +163,15 @@ public class MenuView extends javax.swing.JFrame {
           MenuAdminView dialog = new MenuAdminView(new javax.swing.JFrame(), true);
           dialog.setVisible(true); 
     }//GEN-LAST:event_aba_adminMouseClicked
+
+    private void bAdministrativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAdministrativoActionPerformed
+        // TODO add your handling code here:
+        LoginAdminView dialog = new LoginAdminView(new javax.swing.JFrame(), true);
+           dialog.setVisible(true);     
+           AcessoAdmin = dialog.acesso;
+           getMenuAdmin().setVisible(AcessoAdmin);
+           getbAdministrativo().setVisible(!AcessoAdmin);
+    }//GEN-LAST:event_bAdministrativoActionPerformed
 
     /**
      * @param args the command line arguments

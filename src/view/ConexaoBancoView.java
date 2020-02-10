@@ -42,10 +42,10 @@ public class ConexaoBancoView extends javax.swing.JDialog {
         txtCaminho_Banco = new javax.swing.JTextField();
         txtUsuario = new javax.swing.JTextField();
         txtSenha = new javax.swing.JPasswordField();
-        bConexao = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        bConexao = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Verificar Conexão com Banco");
@@ -70,17 +70,6 @@ public class ConexaoBancoView extends javax.swing.JDialog {
         txtSenha.setName("txtSenha"); // NOI18N
         txtSenha.setPreferredSize(null);
 
-        bConexao.setBackground(new java.awt.Color(255, 255, 255));
-        bConexao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Banco_Dados.jpg"))); // NOI18N
-        bConexao.setText("Criar Conexão");
-        bConexao.setName("bConexao"); // NOI18N
-        bConexao.setPreferredSize(null);
-        bConexao.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                bConexaoMouseClicked(evt);
-            }
-        });
-
         jLabel1.setText("Caminho do Banco:");
         jLabel1.setPreferredSize(null);
 
@@ -89,6 +78,13 @@ public class ConexaoBancoView extends javax.swing.JDialog {
 
         jLabel3.setText("Senha:");
         jLabel3.setPreferredSize(null);
+
+        bConexao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/imgpsh_fullsize_anim (2).png"))); // NOI18N
+        bConexao.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bConexaoMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -102,10 +98,11 @@ public class ConexaoBancoView extends javax.swing.JDialog {
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtCaminho_Banco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtSenha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bConexao, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bConexao, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtCaminho_Banco, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
+                        .addComponent(txtUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtSenha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -123,23 +120,15 @@ public class ConexaoBancoView extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bConexao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bConexao)
+                .addContainerGap())
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void bConexaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bConexaoMouseClicked
-        try {
-            controller.configuracao();
-        } catch (SQLException ex) {
-            Logger.getLogger(ConexaoBancoView.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_bConexaoMouseClicked
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         try {
@@ -150,6 +139,15 @@ public class ConexaoBancoView extends javax.swing.JDialog {
             Logger.getLogger(ConexaoBancoView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_formWindowOpened
+
+    private void bConexaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bConexaoMouseClicked
+        // TODO add your handling code here:
+        try {
+            controller.configuracao();
+        } catch (SQLException ex) {
+            Logger.getLogger(ConexaoBancoView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bConexaoMouseClicked
 
     /**
      * @param args the command line arguments

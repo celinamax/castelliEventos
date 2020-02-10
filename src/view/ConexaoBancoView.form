@@ -56,10 +56,12 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="txtCaminho_Banco" alignment="0" max="32767" attributes="0"/>
-                      <Component id="txtUsuario" alignment="0" max="32767" attributes="0"/>
-                      <Component id="txtSenha" alignment="0" max="32767" attributes="0"/>
-                      <Component id="bConexao" alignment="0" min="-2" pref="338" max="-2" attributes="0"/>
+                      <Component id="bConexao" pref="338" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="txtCaminho_Banco" alignment="0" pref="338" max="32767" attributes="0"/>
+                          <Component id="txtUsuario" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtSenha" alignment="0" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace pref="15" max="32767" attributes="0"/>
               </Group>
@@ -83,9 +85,9 @@
                       <Component id="txtSenha" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="bConexao" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
+                  <Component id="bConexao" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -118,24 +120,6 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="bConexao">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/images/Banco_Dados.jpg"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Criar Conex&#xe3;o"/>
-            <Property name="name" type="java.lang.String" value="bConexao" noResource="true"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="null"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bConexaoMouseClicked"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="text" type="java.lang.String" value="Caminho do Banco:"/>
@@ -159,6 +143,16 @@
               <Dimension value="null"/>
             </Property>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="bConexao">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/images/imgpsh_fullsize_anim (2).png"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bConexaoMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

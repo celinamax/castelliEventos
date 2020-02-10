@@ -41,8 +41,9 @@ public class ReentradaComDocumentoController {
 
     }
         
-    public void setaTabela(){
-        
-    }
+//    public void setarFoto(){
+//        String foto =  
+//        
+//    }
 
 }

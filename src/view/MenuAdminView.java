@@ -57,7 +57,6 @@ public class MenuAdminView extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocation(new java.awt.Point(550, 350));
-        setPreferredSize(new java.awt.Dimension(600, 250));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -101,16 +100,13 @@ public class MenuAdminView extends javax.swing.JDialog {
         txtSenha.setPreferredSize(new java.awt.Dimension(60, 60));
         abaConexaoBanco.add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 450, 30));
 
-        bConexao.setBackground(new java.awt.Color(255, 255, 255));
-        bConexao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Banco_Dados.jpg"))); // NOI18N
-        bConexao.setLabel("Alterar Conexão");
-        bConexao.setName("bConexao"); // NOI18N
+        bConexao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/imgpsh_fullsize_anim (2).png"))); // NOI18N
         bConexao.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 bConexaoMouseClicked(evt);
             }
         });
-        abaConexaoBanco.add(bConexao, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 450, -1));
+        abaConexaoBanco.add(bConexao, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 450, -1));
 
         Principal.addTab("Conexão Banco", abaConexaoBanco);
 
@@ -135,6 +131,7 @@ public class MenuAdminView extends javax.swing.JDialog {
     }//GEN-LAST:event_formWindowOpened
 
     private void bConexaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bConexaoMouseClicked
+        // TODO add your handling code here:
         try {
             controller.configuracao();
         } catch (SQLException ex) {
