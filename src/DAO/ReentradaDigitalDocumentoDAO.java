@@ -2,13 +2,17 @@
 package DAO;
 
 
-import Model.ReentradaComDigital;
-import Model.ReentradaComDocumento;
+import Model.CadastroSaida;
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import javax.sql.rowset.serial.SerialBlob;
 
 public class ReentradaDigitalDocumentoDAO {
     
@@ -39,5 +43,24 @@ public class ReentradaDigitalDocumentoDAO {
         result = stmt.getResultSet();
         return result.next();
     } 
+    
+    public byte[] acharFoto(CadastroSaida cs) throws SQLException, IOException{ 
+       String sql = "SELECT imagem FROM cadastrosaida where documento = ?;";
+       stmt = connection.prepareStatement(sql);
+       stmt.setString(1, cs.getDocumento());
+       stmt.execute();
+       ResultSet Rs = stmt.getResultSet();
+       System.out.println(Rs.getByte("imagem"));
+       
+       SerialBlob blob = new SerialBlob(Rs.getBlob("imagem"));   
+        
+       //BufferedInputStream stream = new BufferedInputStream(blob.getBinaryStream());
+       //byte[] dado = new byte[stream.available()];
+       //stream.read(dado,0,dado.length);
+       
+       stmt.close();
+       
+       return null;
+    }
     
 }

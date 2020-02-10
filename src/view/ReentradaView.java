@@ -31,41 +31,17 @@ public class ReentradaView extends javax.swing.JFrame {
 
         jLabelDigital = new javax.swing.JLabel();
         jTextFieldDocumento = new javax.swing.JTextField();
-        jScrollPaneTabela = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jButtonValidarDocumento = new javax.swing.JButton();
         jButtonLerDigital = new javax.swing.JButton();
         jLabelMessageTela = new javax.swing.JLabel();
+        jLabelFoto = new javax.swing.JLabel();
+        jLabelNome = new javax.swing.JLabel();
+        jLabelDocumento = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(700, 500));
 
         jLabelDigital.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Foto", "Documento", "Nome"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Byte.class, java.lang.String.class, java.lang.Object.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, true
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTable1.setAlignmentX(15.0F);
-        jScrollPaneTabela.setViewportView(jTable1);
 
         jButtonValidarDocumento.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButtonValidarDocumento.setText("Validar Documento");
@@ -88,44 +64,53 @@ public class ReentradaView extends javax.swing.JFrame {
         jLabelMessageTela.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelMessageTela.setAlignmentX(0.5F);
 
+        jLabelFoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
+
+        jLabelNome.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabelDocumento.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldDocumento, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabelDigital, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonLerDigital, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jButtonValidarDocumento, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPaneTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 714, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelMessageTela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelMessageTela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelDigital, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonLerDigital, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonValidarDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelNome, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 418, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabelDigital, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonLerDigital, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextFieldDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelDigital, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonValidarDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jScrollPaneTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                        .addComponent(jButtonLerDigital, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelNome, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonValidarDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
                 .addComponent(jLabelMessageTela, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45))
         );
@@ -136,6 +121,7 @@ public class ReentradaView extends javax.swing.JFrame {
     private void jButtonLerDigitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLerDigitalActionPerformed
         try {
             controller.validarDigital();
+            
         } catch (SQLException ex) {
             Logger.getLogger(ReentradaView.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -191,8 +177,31 @@ public class ReentradaView extends javax.swing.JFrame {
 
     public void setjLabelMessageTela(JLabel jLabelMessageTela) {
         this.jLabelMessageTela = jLabelMessageTela;
+    }    
+
+    public JLabel getjLabelFoto() {
+        return jLabelFoto;
     }
-    
+
+    public void setjLabelFoto(JLabel jLabelFoto) {
+        this.jLabelFoto = jLabelFoto;
+    }   
+
+    public JLabel getjLabelDocumento() {
+        return jLabelDocumento;
+    }
+
+    public void setjLabelDocumento(JLabel jLabelDocumento) {
+        this.jLabelDocumento = jLabelDocumento;
+    }
+
+    public JLabel getjLabelNome() {
+        return jLabelNome;
+    }
+
+    public void setjLabelNome(JLabel jLabelNome) {
+        this.jLabelNome = jLabelNome;
+    }
     
     
 
@@ -200,9 +209,10 @@ public class ReentradaView extends javax.swing.JFrame {
     private javax.swing.JButton jButtonLerDigital;
     private javax.swing.JButton jButtonValidarDocumento;
     private javax.swing.JLabel jLabelDigital;
+    private javax.swing.JLabel jLabelDocumento;
+    private javax.swing.JLabel jLabelFoto;
     private javax.swing.JLabel jLabelMessageTela;
-    private javax.swing.JScrollPane jScrollPaneTabela;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel jLabelNome;
     private javax.swing.JTextField jTextFieldDocumento;
     // End of variables declaration//GEN-END:variables
 }

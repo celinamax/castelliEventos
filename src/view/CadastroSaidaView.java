@@ -1,4 +1,3 @@
-
 package view;
 
 import Controller.CadastroSaidaController;
@@ -7,7 +6,6 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,7 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public class CadastroSaidaView extends javax.swing.JFrame {
-    
+
     private final CadastroSaidaController controller;
     Webcam webcam;
     Boolean rodando = false;
@@ -29,8 +27,7 @@ public class CadastroSaidaView extends javax.swing.JFrame {
         webcam = Webcam.getDefault();
         webcam.setViewSize(new Dimension(labelFoto.getWidth(), labelFoto.getHeight()));
         webcam.open();
-    }   
-   
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -48,6 +45,11 @@ public class CadastroSaidaView extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jButtonCapturar.setBackground(new java.awt.Color(255, 255, 255));
         jButtonCapturar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -103,7 +105,7 @@ public class CadastroSaidaView extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton1)
-                            .addComponent(labelFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(labelFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jButtonCapturar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(93, Short.MAX_VALUE))
@@ -111,23 +113,23 @@ public class CadastroSaidaView extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(22, 22, 22)
                 .addComponent(jLabel1)
-                .addGap(15, 15, 15)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelNome))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelNome)
-                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
+                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(labelFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonCapturar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         pack();
@@ -150,23 +152,28 @@ public class CadastroSaidaView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonCapturarActionPerformed
 
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        webcam.close();
+    }//GEN-LAST:event_formWindowClosed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-       
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new CadastroSaidaView().setVisible(true);
             }
         });
     }
-    
+
     private void setIcon() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../images/castelli.png")));
     }
 
-     public JTextField getjTextFieldDocumento() {
+    public JTextField getjTextFieldDocumento() {
         return jTextFieldDocumento;
     }
 
@@ -190,8 +197,6 @@ public class CadastroSaidaView extends javax.swing.JFrame {
         this.labelFoto = labelFoto;
     }
 
-    
-    
     public byte[] getFoto() {
         return foto;
     }
@@ -199,7 +204,7 @@ public class CadastroSaidaView extends javax.swing.JFrame {
     public void setFoto(byte[] foto) {
         this.foto = foto;
     }
-    
+
     class ThreadFoto extends Thread {
 
         @Override
@@ -208,21 +213,20 @@ public class CadastroSaidaView extends javax.swing.JFrame {
                 try {
                     BufferedImage imagem = webcam.getImage();
                     ByteArrayOutputStream imagemByte = new ByteArrayOutputStream();
-                    ImageIO.write(imagem, "JPG", imagemByte );
+                    ImageIO.write(imagem, "JPG", imagemByte);
                     foto = imagemByte.toByteArray();
                     labelFoto.setIcon(new ImageIcon(imagem));
                     Thread.sleep(35);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(CadastroSaidaView.class.getName()).log(Level.SEVERE, null, ex);
-              } catch (IOException ex) { 
+                } catch (IOException ex) {
                     Logger.getLogger(CadastroSaidaView.class.getName()).log(Level.SEVERE, null, ex);
-                } 
+                }
 
             }
         }
     }
-    
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

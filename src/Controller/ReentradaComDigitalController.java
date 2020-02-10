@@ -32,7 +32,6 @@ public class ReentradaComDigitalController {
 
         Connection conexao = new Conexao().getConnection();
         ReentradaDigitalDocumentoDAO reentradaDAO = new ReentradaDigitalDocumentoDAO(conexao);
-
         liberado = reentradaDAO.digitalExiste(reentrada);
 
         if (liberado) {        

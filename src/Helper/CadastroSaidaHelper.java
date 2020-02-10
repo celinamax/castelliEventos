@@ -2,6 +2,7 @@
 package Helper;
 
 import Model.CadastroSaida;
+import javax.swing.ImageIcon;
 import view.CadastroSaidaView;
 
 public class CadastroSaidaHelper {    
@@ -25,8 +26,14 @@ public class CadastroSaidaHelper {
     public void setarCadastroSaida(CadastroSaida convidado){
         String nome = convidado.getNome();
         String documento = convidado.getDocumento();
-        byte[] imagem = convidado.getFoto();
+        
+//        byte[] imagem = convidado.getFoto();
+
     }
+    
+//    public void imageIcon(){
+//        ImageIcon imagem = new ImageIcon(getClass().getResouce();
+//    }
     
     public void limparTela(){
         view.getjTextFieldNome().setText("");

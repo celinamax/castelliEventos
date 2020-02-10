@@ -41,7 +41,7 @@ public class CadastroSaidaDAO {
     }
     
     public ArrayList<CadastroSaida> listAll() throws SQLException{
-        String sql = "SELECT * FROM cadastroSaida";
+        String sql = "SELECT * FROM cadastrosaida";
         st = connection.createStatement();
         rs = st.executeQuery(sql);
         while(rs.next()){

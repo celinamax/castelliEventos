@@ -13,6 +13,6 @@ public class ReentradaComDigitalHelper {
     public String comDigital() {
         return view.getjLabelDigital().getText();
 
-    }
+    } 
 
 }

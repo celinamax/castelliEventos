@@ -8,6 +8,7 @@ package Controller;
 import DAO.Conexao;
 import DAO.EntradaDAO;
 import Helper.EntradaHelper;
+import java.awt.Color;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -17,7 +18,7 @@ import view.EntradaView;
  *
  * @author HMS
  */
-public class EntradaController {
+public class EntradaController extends Thread{
     
     private final EntradaView view;
     private final EntradaHelper helper;
@@ -28,17 +29,19 @@ public class EntradaController {
         this.helper = new EntradaHelper(view);
     }
     
-    public void validarEntrada() throws SQLException, IOException{
+    public void validarEntrada() throws SQLException, IOException, InterruptedException{
         String entrada = helper.entrada();
         Connection conexao = new Conexao().getConnection();
         EntradaDAO eDao = new EntradaDAO(conexao);
         liberado = eDao.conviteExiste(entrada);
+        Thread.sleep(1000);
         if (liberado) {
             helper.liberaEntrada();
+            
         } else {
             helper.barraEntrada();
         }
-        helper.limpaTela();
+        helper.limpaTela();        
     }
     
     
