@@ -35,16 +35,10 @@ public class EntradaHelper {
                 entradaView.getLabelLiberaEntrada().setText("");
             }
         };
-        this.temporizador = new Timer(1000, acao);
+        this.temporizador = new Timer(5000, acao);
         this.temporizador.setRepeats(false);
         this.temporizador.start();
-    }
-
-//    public void limpaLbel() throws InterruptedException {
-//        
-//        }
-
-    
+    }    
 
     public void liberaEntrada() {
         entradaView.getLabelLiberaEntrada().setText("Entrada Liberada");

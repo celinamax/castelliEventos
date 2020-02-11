@@ -25,10 +25,16 @@ public class ReentradaComDocumentoController {
         String documento = helper.comDocumento();
         Connection conn = new Conexao().getConnection();
         ReentradaDigitalDocumentoDAO rsDao = new ReentradaDigitalDocumentoDAO(conn);
-        CadastroSaida cs = rsDao.busca(documento);
-        view.getjLabelFoto().setIcon(new ImageIcon(cs.getFoto()));
-        view.getjLabelDocumento().setText(cs.getDocumento());
-        view.getjLabelNome().setText(cs.getNome());
+        CadastroSaida cs = rsDao.validaReentrada(documento);
+        if(cs != null){
+            view.getjLabelFoto().setIcon(new ImageIcon(cs.getFoto()));
+            view.getjLabelDocumento().setText(cs.getDocumento());
+            view.getjLabelNome().setText(cs.getNome());
+            
+        }else{
+            view.getjLabelMessageTela().setText("Convidado não Encontrado!");
+        }
+        helper.limparTela();
 
     }
 

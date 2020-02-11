@@ -23,23 +23,23 @@ public class ReentradaComDigitalController {
     }      
     
 
-    public void validarDigital() throws SQLException, IOException {         
-        
-        String reentrada = helper.comDigital();
-
-        Connection conexao = new Conexao().getConnection();
-        ReentradaDigitalDocumentoDAO reentradaDAO = new ReentradaDigitalDocumentoDAO(conexao);
-        liberado = reentradaDAO.digitalExiste(reentrada);
-
-        if (liberado) {        
-            
-            view.getjLabelMessageTela().setText("ENTRADA LIBERADA!");
-        } else {
-            view.getjLabelMessageTela().setText("ENTRADA BARRADA!");
-        }
-
-        System.out.println("teste de validação de entrada com digital!");
-    }  
+//    public void validarDigital() throws SQLException, IOException {         
+//        
+//        String reentrada = helper.comDigital();
+//
+//        Connection conexao = new Conexao().getConnection();
+//        ReentradaDigitalDocumentoDAO reentradaDAO = new ReentradaDigitalDocumentoDAO(conexao);
+//        liberado = reentradaDAO.digitalExiste(reentrada);
+//
+//        if (liberado) {        
+//            
+//            view.getjLabelMessageTela().setText("ENTRADA LIBERADA!");
+//        } else {
+//            view.getjLabelMessageTela().setText("ENTRADA BARRADA!");
+//        }
+//
+//        System.out.println("teste de validação de entrada com digital!");
+//    }  
    
     
 }

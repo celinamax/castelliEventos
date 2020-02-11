@@ -39,6 +39,9 @@ public class ReentradaView extends javax.swing.JFrame {
         jLabelDocumento = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setFont(new java.awt.Font("Comic Sans MS", 0, 48)); // NOI18N
+        setMaximumSize(new java.awt.Dimension(1000, 1000));
+        setMinimumSize(new java.awt.Dimension(800, 800));
         setPreferredSize(new java.awt.Dimension(700, 500));
 
         jLabelDigital.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -119,14 +122,14 @@ public class ReentradaView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonLerDigitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLerDigitalActionPerformed
-        try {
-            controller.validarDigital();
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(ReentradaView.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(ReentradaView.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            controller.validarDigital();
+//            
+//        } catch (SQLException ex) {
+//            Logger.getLogger(ReentradaView.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (IOException ex) {
+//            Logger.getLogger(ReentradaView.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_jButtonLerDigitalActionPerformed
 
     private void jButtonValidarDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValidarDocumentoActionPerformed
