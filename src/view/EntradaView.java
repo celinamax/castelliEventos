@@ -7,6 +7,7 @@ package view;
 
 import Controller.EntradaController;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -44,16 +45,14 @@ public class EntradaView extends javax.swing.JFrame {
 
         labelLiberaEntrada = new javax.swing.JLabel();
         campoCodconvite = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         labelLiberaEntrada.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
 
-        jButton1.setText("Conferir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        campoCodconvite.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                campoCodconviteKeyReleased(evt);
             }
         });
 
@@ -64,13 +63,8 @@ public class EntradaView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(57, 57, 57)
-                                .addComponent(campoCodconvite, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(152, 152, 152)
-                                .addComponent(jButton1)))
+                        .addGap(57, 57, 57)
+                        .addComponent(campoCodconvite, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 51, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -80,9 +74,7 @@ public class EntradaView extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(60, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(49, 49, 49)
+                .addContainerGap(132, Short.MAX_VALUE)
                 .addComponent(campoCodconvite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addComponent(labelLiberaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -92,18 +84,21 @@ public class EntradaView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            // TODO add your handling code here:
-            controller.validarEntrada();
-        } catch (SQLException ex) {
-            Logger.getLogger(EntradaView.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(EntradaView.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(EntradaView.class.getName()).log(Level.SEVERE, null, ex);
+    private void campoCodconviteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoCodconviteKeyReleased
+        // TODO add your handling code here:
+        int code = evt.getKeyCode();
+        if (code == KeyEvent.VK_ENTER) {
+            try {
+                controller.validarEntrada();
+            } catch (SQLException ex) {
+                Logger.getLogger(EntradaView.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(EntradaView.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(EntradaView.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_campoCodconviteKeyReleased
 
     /**
      * @param args the command line arguments
@@ -163,7 +158,6 @@ public class EntradaView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField campoCodconvite;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel labelLiberaEntrada;
     // End of variables declaration//GEN-END:variables
 }

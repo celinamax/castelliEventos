@@ -35,7 +35,7 @@ public class EntradaHelper {
                 entradaView.getLabelLiberaEntrada().setText("");
             }
         };
-        this.temporizador = new Timer(5000, acao);
+        this.temporizador = new Timer(10000, acao);
         this.temporizador.setRepeats(false);
         this.temporizador.start();
     }    

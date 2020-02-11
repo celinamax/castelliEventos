@@ -1,12 +1,9 @@
 
 package Controller;
 
-import DAO.Conexao;
-import DAO.ReentradaDigitalDocumentoDAO;
+
+
 import Helper.ReentradaComDigitalHelper;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
 import view.ReentradaView;
 
 public class ReentradaComDigitalController {
