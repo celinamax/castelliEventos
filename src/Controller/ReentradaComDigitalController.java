@@ -4,12 +4,9 @@ package Controller;
 import DAO.Conexao;
 import DAO.ReentradaDigitalDocumentoDAO;
 import Helper.ReentradaComDigitalHelper;
-import Model.ReentradaComDigital;
-import Model.ReentradaComDocumento;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
-import javax.swing.JOptionPane;
 import view.ReentradaView;
 
 public class ReentradaComDigitalController {

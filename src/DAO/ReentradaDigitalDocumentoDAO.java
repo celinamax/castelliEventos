@@ -3,16 +3,11 @@ package DAO;
 
 
 import Model.CadastroSaida;
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import javax.sql.rowset.serial.SerialBlob;
 
 public class ReentradaDigitalDocumentoDAO {
     
@@ -44,23 +39,26 @@ public class ReentradaDigitalDocumentoDAO {
         return result.next();
     } 
     
-    public byte[] acharFoto(CadastroSaida cs) throws SQLException, IOException{ 
-       String sql = "SELECT imagem FROM cadastrosaida where documento = ?;";
-       stmt = connection.prepareStatement(sql);
-       stmt.setString(1, cs.getDocumento());
-       stmt.execute();
-       ResultSet Rs = stmt.getResultSet();
-       System.out.println(Rs.getByte("imagem"));
-       
-       SerialBlob blob = new SerialBlob(Rs.getBlob("imagem"));   
+    
+    public CadastroSaida busca(String documento) throws SQLException{
         
-       //BufferedInputStream stream = new BufferedInputStream(blob.getBinaryStream());
-       //byte[] dado = new byte[stream.available()];
-       //stream.read(dado,0,dado.length);
+        CadastroSaida cs = null;
+        
+        String sql = "SELECT * FROM cadastrosaida WHERE documento = '"+documento+"'";
+        st = connection.createStatement();
+        //stmt.setString(1, documento);
        
-       stmt.close();
-       
-       return null;
+        result = st.executeQuery(sql);
+        while(result.next()){
+            cs = new CadastroSaida();
+            //cs.setId(result.getInt("id"));
+            cs.setNome(result.getString("nome"));
+            cs.setDocumento(result.getString("documento"));
+            cs.setFoto(result.getBytes("imagem"));
+   
+        }
+        return cs;
     }
+   
     
 }

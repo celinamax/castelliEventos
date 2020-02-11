@@ -7,7 +7,6 @@ package view;
 
 import Controller.EntradaController;
 import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
