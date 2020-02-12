@@ -22,11 +22,12 @@ public class CadastroSaidaDAO {
     }
     
     public void insert(CadastroSaida cs) throws SQLException{
-        String sql = "INSERT INTO cadastroSaida (nome, documento, imagem)VALUES (?, ?, ?)";
+        String sql = "INSERT INTO cadastroSaida (nome, documento, imagem, digital) VALUES (?, ?, ?, ?)";
         stmt = connection.prepareStatement(sql);
         stmt.setString(1, cs.getNome());
         stmt.setString(2, cs.getDocumento());
         stmt.setBytes(3, cs.getFoto());
+        stmt.setBytes(4, cs.getDigital());
         stmt.execute();
         stmt.close();
     }

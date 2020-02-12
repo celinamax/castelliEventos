@@ -17,8 +17,9 @@ public class CadastroSaidaHelper {
         String nome = view.getjTextFieldDocumento().getText();
         String documento = view.getjTextFieldNome().getText();
         byte[] imagem = view.getFoto();
+        byte[] digital = view.getDigital();
         
-        CadastroSaida convidado = new CadastroSaida(nome, documento, imagem);
+        CadastroSaida convidado = new CadastroSaida(nome, documento,digital, imagem);
         
         return convidado;        
     }
@@ -39,6 +40,7 @@ public class CadastroSaidaHelper {
         view.getjTextFieldNome().setText("");
         view.getjTextFieldDocumento().setText("");        
         view.getLabelFoto().setIcon(null);
+        view.getBtnImagem().setIcon(null);
     }
     
     

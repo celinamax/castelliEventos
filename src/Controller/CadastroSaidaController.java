@@ -19,14 +19,15 @@ import com.zkteco.biometric.FingerprintSensor;
 import com.zkteco.biometric.FingerprintSensorErrorCode;
 import com.zkteco.biometric.FingerprintSensorEx;
 import com.zkteco.biometric.ZKFPService;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 public class CadastroSaidaController {
-
-    
 
     private final CadastroSaidaView view;
     private final CadastroSaidaHelper helper;
@@ -71,17 +72,52 @@ public class CadastroSaidaController {
         this.helper = new CadastroSaidaHelper(view);
     }
 
-    public void salvarCadastro() throws IOException {
-        CadastroSaida cadastroSaida = helper.cadastroSaida();
-        try {
-            Connection conn = new Conexao().getConnection();
-            CadastroSaidaDAO csDao = new CadastroSaidaDAO(conn);
-            csDao.insert(cadastroSaida);
-            helper.limparTela();
-            JOptionPane.showMessageDialog(null, "Cadastro Realizado com sucesso!");
-        } catch (SQLException ex) {
-            Logger.getLogger(CadastroSaida.class.getName()).log(Level.SEVERE, null, ex);
+    public boolean verificar() {
+        if ("".equals(view.getjTextFieldNome().getText())) {
+            JOptionPane.showMessageDialog(null, "Por favor informe o nome do convidado!");
+            view.getjTextFieldNome().requestFocus();
+            return false;
         }
+
+        if ("".equals(view.getjTextFieldDocumento().getText())) {
+            JOptionPane.showMessageDialog(null, "Por favor informe o documento do convidado!");
+            view.getjTextFieldDocumento().requestFocus();
+            return false;
+        }
+
+        if ((view.getFoto() == null) || (view.rodando)) {
+            JOptionPane.showMessageDialog(null, "Por favor inclua uma foto do convidado!");
+            view.getjTextFieldDocumento().requestFocus();
+            return false;
+        }
+
+        if (view.getDigital() == null) {
+            JOptionPane.showMessageDialog(null, "Por favor inclua a sua digital do convidado!");
+            return false;
+        }
+
+        if (enroll_idx < 3) {
+            JOptionPane.showMessageDialog(null, "Por favor adicione três vezes a digital!");
+            return false;
+        }
+
+        return true;
+    }
+
+    public void salvarCadastro() throws IOException {
+        if (verificar()) {
+            CadastroSaida cadastroSaida = helper.cadastroSaida();
+            try {
+                Connection conn = new Conexao().getConnection();
+                CadastroSaidaDAO csDao = new CadastroSaidaDAO(conn);
+                csDao.insert(cadastroSaida);
+                helper.limparTela();
+                JOptionPane.showMessageDialog(null, "Cadastro Realizado com sucesso!");
+            } catch (SQLException ex) {
+                Logger.getLogger(CadastroSaida.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
     }
 
     public void atualizarCadastro() throws IOException {
@@ -95,13 +131,13 @@ public class CadastroSaidaController {
             Logger.getLogger(CadastroSaida.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public void fecharBiometria(){
+
+    public void fecharBiometria() {
         FreeSensor();
     }
 
     public void abrirBiometria() {
-         
+
         int ret = erro.ZKFP_ERR_OK;
         cbRegTemp = 1;
         bRegister = false;
@@ -118,26 +154,26 @@ public class CadastroSaidaController {
             JOptionPane.showMessageDialog(null, "Nenhum dispositivo conectado!\n");
             FreeSensor();
             return;
-        }     
+        }
         if (0 == (mhDevice = ex.OpenDevice(0))) {;
             JOptionPane.showMessageDialog(null, "Falha no dispositivo aberto, ret = " + ret + "!\n");
             FreeSensor();
             return;
         }
-        
+
         if (0 == (mhDB = ex.DBInit())) {
             JOptionPane.showMessageDialog(null, "Falha no banco de dados inicial, ret = " + ret + "!\n");
             FreeSensor();
             return;
         }
-        
+
         int nFmt = 0;
         ex.DBSetParameter(mhDB, 5010, nFmt);
         byte[] paramValue = new byte[4];
         int[] size = new int[1];
         size[0] = 4;
         ex.GetParameters(mhDevice, 1, paramValue, size);
-        fpWidth = byteArrayToInt(paramValue); 
+        fpWidth = byteArrayToInt(paramValue);
         size[0] = 4;
         ex.GetParameters(mhDevice, 2, paramValue, size);
         fpHeight = byteArrayToInt(paramValue);
@@ -218,6 +254,13 @@ public class CadastroSaidaController {
         try {
             writeBitmap(imgBuf, fpWidth, fpHeight, "fingerprint.bmp");
             view.getBtnImagem().setIcon(new ImageIcon(ImageIO.read(new File("fingerprint.bmp"))));
+         
+            BufferedImage imagem = new BufferedImage(view.getBtnImagem().getIcon().getIconWidth(), view.getBtnImagem().getIcon().getIconHeight(), BufferedImage.TYPE_INT_RGB);
+            
+            ByteArrayOutputStream imagemByte = new ByteArrayOutputStream();
+            ImageIO.write(imagem, "JPG", imagemByte);            
+            view.setDigital(imagemByte.toByteArray());
+            
         } catch (IOException e) {
             e.printStackTrace();
         }

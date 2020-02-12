@@ -32,7 +32,7 @@ public class ConexaoBancoView extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         controller = new conexaoBancoController(this);
-        setIcon();
+        setIcon(); 
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
