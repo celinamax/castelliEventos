@@ -8,7 +8,6 @@ package Controller;
 import DAO.Conexao;
 import DAO.EntradaDAO;
 import Helper.EntradaHelper;
-import java.awt.Color;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
