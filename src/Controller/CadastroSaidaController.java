@@ -371,10 +371,11 @@ public class CadastroSaidaController {
                     iFid++;
                     cbRegTemp = _retLen[0];
                     System.arraycopy(regTemp, 0, lastRegTemp, 0, cbRegTemp);
+                    FreeSensor();
                     //Base64 Template
                     JOptionPane.showMessageDialog(null, "Cadastro de digital com sucesso:\n");
                 } else {
-                    JOptionPane.showMessageDialog(null, "enroll fail, error code=" + ret + "\n");
+                    JOptionPane.showMessageDialog(null, "Falha na inscrição, código de erro = " + ret + "\n");
                 }
                 bRegister = false;
             } else {

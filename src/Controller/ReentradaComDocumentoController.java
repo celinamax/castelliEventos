@@ -25,7 +25,7 @@ public class ReentradaComDocumentoController {
         String documento = helper.comDocumento();
         Connection conn = new Conexao().getConnection();
         ReentradaDigitalDocumentoDAO rsDao = new ReentradaDigitalDocumentoDAO(conn);
-        CadastroSaida cs = rsDao.validaReentrada(documento);
+        CadastroSaida cs = rsDao.validaDocumento(documento);
         if(cs != null){
             view.getjLabelFoto().setIcon(new ImageIcon(cs.getFoto()));
             view.getjLabelDocumento().setText(cs.getDocumento());

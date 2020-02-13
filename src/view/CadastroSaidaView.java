@@ -48,9 +48,10 @@ public class CadastroSaidaView extends javax.swing.JFrame {
         jTextFieldDocumento = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        btnImagem = new javax.swing.JButton();
+        btnImagem = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
         addWindowStateListener(new java.awt.event.WindowStateListener() {
             public void windowStateChanged(java.awt.event.WindowEvent evt) {
                 formWindowStateChanged(evt);
@@ -66,6 +67,8 @@ public class CadastroSaidaView extends javax.swing.JFrame {
         });
 
         labelFoto.setForeground(new java.awt.Color(153, 0, 0));
+        labelFoto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelFoto.setText("WebCam");
         labelFoto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         labelFoto.setPreferredSize(new java.awt.Dimension(320, 240));
 
@@ -100,7 +103,8 @@ public class CadastroSaidaView extends javax.swing.JFrame {
             }
         });
 
-        btnImagem.setName("btnImagem"); // NOI18N
+        btnImagem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnImagem.setText("Digital");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -126,16 +130,16 @@ public class CadastroSaidaView extends javax.swing.JFrame {
                             .addComponent(jLabelNome)
                             .addGap(47, 47, 47)
                             .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
-                .addComponent(btnImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnImagem, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
+                .addGap(50, 50, 50))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnImagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(9, 9, 9)
@@ -152,7 +156,7 @@ public class CadastroSaidaView extends javax.swing.JFrame {
                             .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
@@ -238,11 +242,11 @@ public class CadastroSaidaView extends javax.swing.JFrame {
         this.foto = foto;
     }
 
-    public JButton getBtnImagem() {
+    public JLabel getBtnImagem() {
         return btnImagem;
     }
 
-    public void setBtnImagem(JButton btnImagem) {
+    public void setBtnImagem(JLabel btnImagem) {
         this.btnImagem = btnImagem;
     }
 
@@ -278,7 +282,7 @@ public class CadastroSaidaView extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnImagem;
+    private javax.swing.JLabel btnImagem;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;

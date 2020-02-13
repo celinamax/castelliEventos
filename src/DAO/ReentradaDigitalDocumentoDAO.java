@@ -16,24 +16,24 @@ public class ReentradaDigitalDocumentoDAO {
         this.connection = connection;
     }
 
-//    public boolean digitalExiste(String reentrada) throws SQLException{
-//        
-//        String sql = "select * from cadastrosaida where digital = '"+reentrada+"' ";
-//        stmt = connection.prepareStatement(sql);
-//        stmt.execute();
-//        result = stmt.getResultSet();      
-//        return result.next();        
-//    }
-//
-//    public boolean documentoExiste(String reentrada) throws SQLException {  
-//       
-//        String sql = "select * from cadastrosaida where documento = '"+reentrada+"'";
-//        stmt = connection.prepareStatement(sql);
-//        stmt.execute();
-//        result = stmt.getResultSet();
-//        return result.next();
-//    } 
-    public CadastroSaida validaReentrada(String documento) throws SQLException {
+    public CadastroSaida digitalExiste(byte[] reentrada) throws SQLException{
+        
+        CadastroSaida cs = null;
+        
+        String sql = "select * from cadastrosaida where digital = '"+reentrada+"' ";
+        stmt = connection.prepareStatement(sql);
+        stmt.execute();
+        result = stmt.executeQuery();
+        while (result.next()) {
+            cs = new CadastroSaida();
+            cs.setNome(result.getString("nome"));
+            cs.setDocumento(result.getString("documento"));
+            cs.setFoto(result.getBytes("imagem"));
+        }
+        return cs;        
+    }
+    
+    public CadastroSaida validaDocumento(String documento) throws SQLException {
 
         CadastroSaida cs = null;
 

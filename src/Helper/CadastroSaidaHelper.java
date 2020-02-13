@@ -14,8 +14,8 @@ public class CadastroSaidaHelper {
     }
     
     public CadastroSaida cadastroSaida(){
-        String nome = view.getjTextFieldDocumento().getText();
-        String documento = view.getjTextFieldNome().getText();
+        String nome = view.getjTextFieldNome().getText();
+        String documento = view.getjTextFieldDocumento().getText();
         byte[] imagem = view.getFoto();
         byte[] digital = view.getDigital();
         
