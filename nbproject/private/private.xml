@@ -12,11 +12,10 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/HMS/Documents/NetBeansProjects/castelliEventos/src/Controller/ReentradaComDigitalController.java</file>
             <file>file:/C:/Users/HMS/Documents/NetBeansProjects/castelliEventos/src/view/ReentradaView.java</file>
-            <file>file:/C:/Users/HMS/Documents/NetBeansProjects/castelliEventos/src/Helper/CadastroSaidaHelper.java</file>
-            <file>file:/C:/Users/HMS/Documents/NetBeansProjects/castelliEventos/src/Controller/CadastroSaidaController.java</file>
-            <file>file:/C:/Users/HMS/Documents/NetBeansProjects/castelliEventos/src/view/CadastroSaidaView.java</file>
+            <file>file:/C:/Users/HMS/Documents/NetBeansProjects/castelliEventos/src/DAO/EntradaDAO.java</file>
+            <file>file:/C:/Users/HMS/Documents/NetBeansProjects/castelliEventos/src/Controller/EntradaController.java</file>
+            <file>file:/C:/Users/HMS/Documents/NetBeansProjects/castelliEventos/src/view/EntradaView.java</file>
         </group>
     </open-files>
 </project-private>

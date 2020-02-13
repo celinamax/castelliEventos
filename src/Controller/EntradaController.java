@@ -28,19 +28,21 @@ public class EntradaController extends Thread{
         this.helper = new EntradaHelper(view);
     }
     
-    public void validarEntrada() throws SQLException, IOException, InterruptedException{
+   public void validarEntrada() throws SQLException, IOException, InterruptedException {
         String entrada = helper.entrada();
         Connection conexao = new Conexao().getConnection();
         EntradaDAO eDao = new EntradaDAO(conexao);
         liberado = eDao.conviteExiste(entrada);
+
         Thread.sleep(1000);
         if (liberado) {
             helper.liberaEntrada();
-            
+            eDao.validaConvite(entrada);
         } else {
             helper.barraEntrada();
+
         }
-        helper.limpaTela();        
+        helper.limpaTela();
     }
     
     
