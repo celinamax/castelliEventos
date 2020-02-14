@@ -11,15 +11,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import view.CadastroSaidaView;
-import com.zkteco.biometric.FingerprintCaptureListener;
-import com.zkteco.biometric.FingerprintCaptureThread;
-import com.zkteco.biometric.FingerprintCaptureThreadPool;
-import com.zkteco.biometric.FingerprintInterface;
-import com.zkteco.biometric.FingerprintSensor;
 import com.zkteco.biometric.FingerprintSensorErrorCode;
 import com.zkteco.biometric.FingerprintSensorEx;
-import com.zkteco.biometric.ZKFPService;
-import java.awt.Image;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -252,12 +246,15 @@ public class CadastroSaidaController {
 
     private void OnCatpureOK(byte[] imgBuf) {
         try {
+            view.getBtnImagem().setText("");
             writeBitmap(imgBuf, fpWidth, fpHeight, "fingerprint.bmp");
             view.getBtnImagem().setIcon(new ImageIcon(ImageIO.read(new File("fingerprint.bmp"))));
          
-            BufferedImage imagem = new BufferedImage(view.getBtnImagem().getIcon().getIconWidth(), view.getBtnImagem().getIcon().getIconHeight(), BufferedImage.TYPE_INT_RGB);
-            
-            ByteArrayOutputStream imagemByte = new ByteArrayOutputStream();
+            BufferedImage imagem = new BufferedImage(view.getBtnImagem().getIcon().getIconWidth(), 
+                    view.getBtnImagem().getIcon().getIconHeight(), 
+                    BufferedImage.TYPE_INT_RGB);
+                    
+            ByteArrayOutputStream imagemByte = new ByteArrayOutputStream();           
             ImageIO.write(imagem, "JPG", imagemByte);            
             view.setDigital(imagemByte.toByteArray());
             

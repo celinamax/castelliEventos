@@ -20,8 +20,9 @@ public class ReentradaDigitalDocumentoDAO {
         
         CadastroSaida cs = null;
         
-        String sql = "select * from cadastrosaida where digital = '"+reentrada+"' ";
+        String sql = "select * from cadastrosaida where digital = ? ";
         stmt = connection.prepareStatement(sql);
+        stmt.setBytes(1, reentrada);
         stmt.execute();
         result = stmt.executeQuery();
         while (result.next()) {
