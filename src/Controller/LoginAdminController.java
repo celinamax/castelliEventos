@@ -31,15 +31,15 @@ public class LoginAdminController {
 
     public boolean validar() {
         if (view.getTxtLogin().getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Por favor preencha o login!");
+            JOptionPane.showMessageDialog(null, "Por favor, preencha o login!");
             view.getTxtLogin().requestFocus(true);
             return true;
         } else if (view.getTxtSenha().getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Por favor preencha a senha!");
+            JOptionPane.showMessageDialog(null, "Por favor, preencha a senha!");
             view.getTxtSenha().requestFocus(true);
             return true;
         } else if (!view.getTxtLogin().getText().equals(usuario)) {
-            JOptionPane.showMessageDialog(null, "Usuário Incorreta!");
+            JOptionPane.showMessageDialog(null, "Usuário Inválido!");
             view.getTxtLogin().requestFocus(true);
             return true;
         } else if (!view.getTxtSenha().getText().equals(senha)) {

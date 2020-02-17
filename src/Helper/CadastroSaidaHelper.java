@@ -24,13 +24,13 @@ public class CadastroSaidaHelper {
         return convidado;        
     }
     
-    public void setarCadastroSaida(CadastroSaida convidado){
-        String nome = convidado.getNome();
-        String documento = convidado.getDocumento();
-        
-//        byte[] imagem = convidado.getFoto();
-
-    }
+//    public void setarCadastroSaida(CadastroSaida convidado){
+//        String nome = convidado.getNome();
+//        String documento = convidado.getDocumento();
+//        
+////        byte[] imagem = convidado.getFoto();
+//
+//    }
     
 //    public void imageIcon(){
 //        ImageIcon imagem = new ImageIcon(getClass().getResouce();

@@ -40,15 +40,15 @@ public class conexaoBancoController {
 
     public boolean validar() {
         if (view.getTxtCaminho_Banco().getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Por favor preencha o caminho do banco");
+            JOptionPane.showMessageDialog(null, "Por favor, preencha o caminho do banco");
             view.getTxtCaminho_Banco().requestFocus(true);
             return true;
         } else if (view.getTxtUsuario().getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Por favor preencha o Usuário");
+            JOptionPane.showMessageDialog(null, "Por favor, preencha o Usuário");
             view.getTxtUsuario().requestFocus(true);
             return true;
         } else if (view.getTxtSenha().getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Por favor preencha a senha");
+            JOptionPane.showMessageDialog(null, "Por favor, preencha a senha");
             view.getTxtSenha().requestFocus(true);
             return true;
         } else {
@@ -58,7 +58,7 @@ public class conexaoBancoController {
 
     public void escreverArquivo(String caminho_banco, String usuario, String senha) throws IOException, SQLException {
         //arquivo para escrita
-        String Banco_full = "jdbc:mysql:" + caminho_banco + "?useTimezone=true&serverTimezone=UTC";
+        String Banco_full = "jdbc:mysql://" + caminho_banco + "?useTimezone=true&serverTimezone=UTC";
         Connection conexao = DriverManager.getConnection(Banco_full, usuario, senha);
 
         boolean conectar = true;

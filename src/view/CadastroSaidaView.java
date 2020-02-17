@@ -51,7 +51,7 @@ public class CadastroSaidaView extends javax.swing.JFrame {
         btnImagem = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setResizable(false);
+        setPreferredSize(new java.awt.Dimension(800, 800));
         addWindowStateListener(new java.awt.event.WindowStateListener() {
             public void windowStateChanged(java.awt.event.WindowEvent evt) {
                 formWindowStateChanged(evt);
@@ -131,7 +131,7 @@ public class CadastroSaidaView extends javax.swing.JFrame {
                             .addGap(47, 47, 47)
                             .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
-                .addComponent(btnImagem, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
+                .addComponent(btnImagem, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
                 .addGap(50, 50, 50))
         );
         layout.setVerticalGroup(
@@ -164,7 +164,7 @@ public class CadastroSaidaView extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
-            controller.salvarCadastro();
+            controller.salvarCadastroSaida();
         } catch (IOException ex) {
             Logger.getLogger(CadastroSaidaView.class.getName()).log(Level.SEVERE, null, ex);
         }

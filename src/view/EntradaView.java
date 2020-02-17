@@ -48,6 +48,7 @@ public class EntradaView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         labelLiberaEntrada.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
 

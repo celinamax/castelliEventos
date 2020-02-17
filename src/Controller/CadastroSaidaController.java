@@ -66,47 +66,47 @@ public class CadastroSaidaController {
         this.helper = new CadastroSaidaHelper(view);
     }
 
-    public boolean verificar() {
+    public boolean validarCampos() {
         if ("".equals(view.getjTextFieldNome().getText())) {
-            JOptionPane.showMessageDialog(null, "Por favor informe o nome do convidado!");
+            JOptionPane.showMessageDialog(null, "Por favor, informe o nome do convidado!");
             view.getjTextFieldNome().requestFocus();
             return false;
         }
 
         if ("".equals(view.getjTextFieldDocumento().getText())) {
-            JOptionPane.showMessageDialog(null, "Por favor informe o documento do convidado!");
+            JOptionPane.showMessageDialog(null, "Por favor, informe o documento do convidado!");
             view.getjTextFieldDocumento().requestFocus();
             return false;
         }
 
         if ((view.getFoto() == null) || (view.rodando)) {
-            JOptionPane.showMessageDialog(null, "Por favor inclua uma foto do convidado!");
+            JOptionPane.showMessageDialog(null, "Por favor, inclua a foto do convidado!");
             view.getjTextFieldDocumento().requestFocus();
             return false;
         }
 
         if (view.getDigital() == null) {
-            JOptionPane.showMessageDialog(null, "Por favor inclua a sua digital do convidado!");
+            JOptionPane.showMessageDialog(null, "Por favor, inclua a digital do convidado!");
             return false;
         }
 
         if (enroll_idx < 3) {
-            JOptionPane.showMessageDialog(null, "Por favor adicione três vezes a digital!");
+            JOptionPane.showMessageDialog(null, "Por favor, adicione três vezes a digital!");
             return false;
         }
 
         return true;
     }
 
-    public void salvarCadastro() throws IOException {
-        if (verificar()) {
+    public void salvarCadastroSaida() throws IOException {
+        if (validarCampos()) {
             CadastroSaida cadastroSaida = helper.cadastroSaida();
             try {
                 Connection conn = new Conexao().getConnection();
                 CadastroSaidaDAO csDao = new CadastroSaidaDAO(conn);
                 csDao.insert(cadastroSaida);
                 helper.limparTela();
-                JOptionPane.showMessageDialog(null, "Cadastro Realizado com sucesso!");
+                JOptionPane.showMessageDialog(null, "Cadastro Saída Realizado com sucesso!");
             } catch (SQLException ex) {
                 Logger.getLogger(CadastroSaida.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -114,13 +114,13 @@ public class CadastroSaidaController {
 
     }
 
-    public void atualizarCadastro() throws IOException {
+    public void atualizarCadastroSaida() throws IOException {
         CadastroSaida cadastroSaida = helper.cadastroSaida();
         try {
             Connection con = new Conexao().getConnection();
             CadastroSaidaDAO csDao = new CadastroSaidaDAO(con);
             csDao.update(cadastroSaida);
-            JOptionPane.showMessageDialog(null, "Alterado Realizado com sucesso!");
+            JOptionPane.showMessageDialog(null, "Cadastro Saída atualizado com sucesso!");
         } catch (SQLException ex) {
             Logger.getLogger(CadastroSaida.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -193,7 +193,7 @@ public class ConexaoBancoView extends javax.swing.JDialog {
     }
     
     private void setIcon() {
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../images/castelli.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../images/castelli.png")));        
     }
 
     public JButton getbConexao() {

@@ -85,7 +85,7 @@ public class ReentradaComDigitalController {
         } else {
             view.getjLabelMessageTela().setText("ENTRADA BARRADA!");
         }
-        System.out.println("teste de validação de entrada com digital!");
+                                                                                              
     }
 
     public void fecharBiometria() {
@@ -337,7 +337,8 @@ public class ReentradaComDigitalController {
 
             } else {
                 if (cbRegTemp <= 0) {
-                    JOptionPane.showMessageDialog(null, "Por favor registre-se primeiro!\n");
+                    JOptionPane.showMessageDialog(null, "Por favor,"
+                            + " registre-se primeiro!\n");
                 } else {
                     int ret = ex.DBMatch(mhDB, lastRegTemp, template);
                     if (ret > 0) {
