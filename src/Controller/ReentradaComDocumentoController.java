@@ -40,10 +40,8 @@ public class ReentradaComDocumentoController {
             }
             helper.limparTela();  
         }
-        
-        
-
-    }
+   
+  }
     
     public boolean validar(String doc) throws SQLException{
         if (DAO.validarEntrada(doc))

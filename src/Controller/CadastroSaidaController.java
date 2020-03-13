@@ -86,15 +86,15 @@ public class CadastroSaidaController {
             return false;
         }
 
-//        if (view.getDigital() == null) {
-//            JOptionPane.showMessageDialog(null, "Por favor, inclua a digital do convidado!");
-//            return false;
-//        }
-//
-//        if (enroll_idx < 3) {
-//            JOptionPane.showMessageDialog(null, "Por favor, adicione três vezes a digital!");
-//            return false;
-//        }
+        if (view.getDigital() == null) {;;
+            JOptionPane.showMessageDialog(null, "Por favor, inclua a digital do convidado!");
+            return false;
+        }
+
+        if (enroll_idx < 3) {
+            JOptionPane.showMessageDialog(null, "Por favor, adicione três vezes a digital!");
+           return false;
+        }
         
         if (DAO.buscarConvidado(view.getjTextFieldDocumento().getText()))
         {
