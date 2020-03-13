@@ -65,7 +65,6 @@ public class CadastroSaida {
 
     public void setFoto(byte[] foto) {
         this.foto = foto;
-    }   
-    
+    }      
     
 }
