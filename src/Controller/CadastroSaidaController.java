@@ -25,6 +25,7 @@ public class CadastroSaidaController {
 
     private final CadastroSaidaView view;
     private final CadastroSaidaHelper helper;
+    private CadastroSaidaDAO DAO;
     JButton btnImg = null;
     FingerprintSensorEx ex;
     FingerprintSensorErrorCode erro;
@@ -66,7 +67,7 @@ public class CadastroSaidaController {
         this.helper = new CadastroSaidaHelper(view);
     }
 
-    public boolean validarCampos() {
+    public boolean validarCampos() throws SQLException {
         if ("".equals(view.getjTextFieldNome().getText())) {
             JOptionPane.showMessageDialog(null, "Por favor, informe o nome do convidado!");
             view.getjTextFieldNome().requestFocus();
@@ -85,20 +86,29 @@ public class CadastroSaidaController {
             return false;
         }
 
-        if (view.getDigital() == null) {
-            JOptionPane.showMessageDialog(null, "Por favor, inclua a digital do convidado!");
-            return false;
-        }
-
-        if (enroll_idx < 3) {
-            JOptionPane.showMessageDialog(null, "Por favor, adicione três vezes a digital!");
+//        if (view.getDigital() == null) {
+//            JOptionPane.showMessageDialog(null, "Por favor, inclua a digital do convidado!");
+//            return false;
+//        }
+//
+//        if (enroll_idx < 3) {
+//            JOptionPane.showMessageDialog(null, "Por favor, adicione três vezes a digital!");
+//            return false;
+//        }
+        
+        if (DAO.buscarConvidado(view.getjTextFieldDocumento().getText()))
+        {
+            JOptionPane.showMessageDialog(null, "Convidado já cadastrado!");
+            DAO.updateSaidaCadastrada(view.getjTextFieldDocumento().getText());
             return false;
         }
 
         return true;
     }
+        
+        
 
-    public void salvarCadastroSaida() throws IOException {
+    public void salvarCadastroSaida() throws IOException, SQLException {
         if (validarCampos()) {
             CadastroSaida cadastroSaida = helper.cadastroSaida();
             try {

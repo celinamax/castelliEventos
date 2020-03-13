@@ -22,12 +22,13 @@ public class CadastroSaidaDAO {
     }
     
     public void insert(CadastroSaida cs) throws SQLException{
-        String sql = "INSERT INTO cadastroSaida (nome, documento, imagem, digital) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO cadastroSaida (nome, documento, imagem, digital, entrou) VALUES (?, ?, ?, ?, ?)";
         stmt = connection.prepareStatement(sql);
         stmt.setString(1, cs.getNome());
         stmt.setString(2, cs.getDocumento());
         stmt.setBytes(3, cs.getFoto());
         stmt.setBytes(4, cs.getDigital());
+        stmt.setBoolean(5, false);
         stmt.execute();
         stmt.close();
     }
@@ -54,6 +55,25 @@ public class CadastroSaidaDAO {
             lista.add(cs);
         }
         return lista;
+    }
+    
+    public boolean buscarConvidado(String doc) throws SQLException{
+        
+        String sql = "SELECT documento FROM cadastrosaida WHERE documento = ?";
+        
+        st = connection.createStatement();  
+        stmt.setString(1, doc);
+        rs = st.executeQuery(sql);     
+        return rs.next();        
+    }
+    
+    public void updateSaidaCadastrada(String doc) throws SQLException{
+        String sql = "UPDATE cadastroSaida SET entrou = ? WHERE documento =?";
+        stmt = connection.prepareStatement(sql);
+        stmt.setBoolean(1, false);
+        stmt.setString(1, doc);
+        stmt.execute();
+        stmt.close();
     }
     
 }
