@@ -93,6 +93,10 @@ public class conexaoBancoController {
             buffW.newLine();
             buffW.close();
             JOptionPane.showMessageDialog(null, "Banco conectado com sucesso!");
+            if (showTables()){
+                String[] args = null;
+                GeraTabelasApp.main(args);
+            }
             MenuView MenuForm = new MenuView();
             MenuForm.setVisible(true);
             view.setVisible(false);

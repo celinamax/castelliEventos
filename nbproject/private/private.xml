@@ -11,13 +11,6 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/D:/Projetos/NetBeans/castelliEventos/src/Model/CadastroSaida.java</file>
-            <file>file:/D:/Projetos/NetBeans/castelliEventos/src/DAO/EntradaDAO.java</file>
-            <file>file:/D:/Projetos/NetBeans/castelliEventos/src/app/GeraTabelasApp.java</file>
-            <file>file:/D:/Projetos/NetBeans/castelliEventos/src/app/hibernate.cfg.xml</file>
-            <file>file:/D:/Projetos/NetBeans/castelliEventos/src/Model/Entrada.java</file>
-            <file>file:/D:/Projetos/NetBeans/castelliEventos/src/DAO/CadastroSaidaDAO.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
