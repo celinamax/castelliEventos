@@ -8,7 +8,6 @@ package Controller;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import view.ConexaoBancoView;
-import javax.swing.JFileChooser;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -17,12 +16,15 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import DAO.Conexao;
 import view.MenuView;
 import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.Base64;
+import app.GeraTabelasApp;
+import DAO.Conexao;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 /**
  *
@@ -31,8 +33,9 @@ import java.util.Base64;
 public class conexaoBancoController {
 
     private ConexaoBancoView view;
-    private Conexao Conexao;
-    private MenuView MenuView;
+    private Connection connection;
+    private Statement st;
+    private ResultSet rs;
 
     public conexaoBancoController(ConexaoBancoView view) {
         this.view = view;
@@ -123,6 +126,11 @@ public class conexaoBancoController {
             senha = new String(Base64.getDecoder().decode(senha.getBytes()));
             
             Connection conexao = DriverManager.getConnection(caminho_banco, usuario, senha);
+            
+            if (showTables()){
+                String[] args = null;
+                GeraTabelasApp.main(args);
+            }
 
             boolean conectar = true;
             conectar = !conexao.isClosed();
@@ -133,6 +141,15 @@ public class conexaoBancoController {
                 view.setVisible(true);
             }
         }
+    }
+    
+    public boolean showTables() throws SQLException, IOException{
+        connection = new Conexao().getConnection();
+        String sql = "select count(*) contador from information_schema.tables WHERE table_schema = 'castelli';";
+        st = connection.createStatement();
+        rs = st.executeQuery(sql);
+        rs.next();
+        return rs.getInt("contador") == 0;
     }
     
 }
