@@ -1,10 +1,21 @@
 
 package Model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity // Mapeia classe em tabela
+@Table(name="cadastroSaida")
 public class CadastroSaida {
     
+    @Id @GeneratedValue // Mapeia chave primária ou composta
     protected int id;
+    @Column(name ="nome", nullable=true,length=120) // Mapeia coluna
     protected String nome;
+    @Column(name ="documento", nullable=true,length=50) // Mapeia coluna
     protected String documento;
     protected byte[] digital;
     protected byte[] foto;

@@ -15,6 +15,6 @@
          
         <!-- Livro -->
         <mapping class="Model.CadastroSaida" />
-         
+        <mapping class="Model.Entrada" /> 
     </session-factory>
 </hibernate-configuration>
