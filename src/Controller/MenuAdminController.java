@@ -5,6 +5,8 @@
  */
 package Controller;
 
+import DAO.Conexao;
+import DAO.MenuAdminDAO;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -27,14 +29,15 @@ import view.MenuView;
  * @author HMS
  */
 public class MenuAdminController {
-    
+
     private MenuAdminView view;
+    private MenuAdminDAO DAO;
 
     public MenuAdminController(MenuAdminView view) {
-        this.view = view;
+        this.view = view; 
     }
     
-    public void validar_existe_banco() throws FileNotFoundException, IOException, SQLException {        
+    public void validar_existe_banco() throws FileNotFoundException, IOException, SQLException {
         File file = new File("C:\\Castelli\\configuracao.txt");
         if (file.exists()) {
             view.setVisible(false);
@@ -43,30 +46,30 @@ public class MenuAdminController {
             String caminho_banco = buffR.readLine();
             String usuario = buffR.readLine();
             String senha = buffR.readLine();
-            
+
             caminho_banco = new String(Base64.getDecoder().decode(caminho_banco.getBytes()));
             usuario = new String(Base64.getDecoder().decode(usuario.getBytes()));
             senha = new String(Base64.getDecoder().decode(senha.getBytes()));
-                                
+
             Connection conexao = DriverManager.getConnection(caminho_banco, usuario, senha);
 
             boolean conectar = true;
             conectar = !conexao.isClosed();
-            
+
             if (conectar) {
                 caminho_banco = caminho_banco.replace("jdbc:mysql:", "");
                 caminho_banco = caminho_banco.replace("?useTimezone=true&serverTimezone=UTC", "");
                 view.getTxtCaminho_Banco().setText(caminho_banco);
                 view.getTxtUsuario().setText(usuario);
-                view.getTxtSenha().setText(senha); 
+                view.getTxtSenha().setText(senha);
                 view.setVisible(true);
-            } 
-        }
-        else {
+            }
+        } else {
             JOptionPane.showMessageDialog(null, "O Arquivo de configuração não foi encontrado!");
+
         }
     }
-    
+
     public boolean validar() {
         if (view.getTxtCaminho_Banco().getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Por favor preencha o caminho do banco");
@@ -84,7 +87,7 @@ public class MenuAdminController {
             return false;
         }
     }
-    
+
     public void escreverArquivo(String caminho_banco, String usuario, String senha) throws IOException, SQLException {
         //arquivo para escrita
         String Banco_full = "jdbc:mysql:" + caminho_banco + "?useTimezone=true&serverTimezone=UTC";
@@ -97,18 +100,20 @@ public class MenuAdminController {
             File diretorio = new File("C:\\Castelli");
             if (!diretorio.exists()) {
                 diretorio.mkdir();
+
             }
+            //alterarConexaoBanco(conexao);
 
             File arquivo = new File("C:\\Castelli\\configuracao.txt");
             if (!arquivo.exists()) {
                 arquivo.createNewFile();
             }
-         
+
             /*ESCREVER*/
             Banco_full = new String(Base64.getEncoder().encode(Banco_full.getBytes()));
             usuario = new String(Base64.getEncoder().encode(usuario.getBytes()));
             senha = new String(Base64.getEncoder().encode(senha.getBytes()));
-            
+
             FileWriter fileW = new FileWriter(arquivo);//arquivo para escrita
             BufferedWriter buffW = new BufferedWriter(fileW);
             buffW.write(Banco_full);//Leia um arquivo e Escreva na linha
@@ -124,7 +129,7 @@ public class MenuAdminController {
             view.setVisible(false);
         }
     }
-    
+
     public void configuracao() throws SQLException {
         if (!validar()) {
             try {
@@ -136,5 +141,16 @@ public class MenuAdminController {
             }
         }
     }
-    
+
+    public void resetarBanco() throws SQLException, IOException {       
+        
+        int reply = JOptionPane.showConfirmDialog(null, "Deseja realmente deletar os campos da tabela?", "Confirmaçao", JOptionPane.YES_NO_OPTION);
+        if (reply == JOptionPane.YES_OPTION) {
+            Connection conn = new Conexao().getConnection();
+            DAO = new MenuAdminDAO(conn);
+            DAO.deletarCamposTabela();
+        }      
+
+    }
+
 }
